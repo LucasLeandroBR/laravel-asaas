@@ -11,9 +11,9 @@ class AsaasClientService extends AuthenticationService
     public function create($user): mixed
     {
         $data = [
-            'name' => $user->name,
-            'email' => $user->email,
-            'cpfCnpj' => $user->document
+            'name' => $user['name'],
+            'email' => $user['email'],
+            'cpfCnpj' => $user['document']
         ];
 
         $result = $this->http()->post('/customers', [
