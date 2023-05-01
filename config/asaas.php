@@ -5,12 +5,12 @@
  */
 return [
 
-    'key' => env('STRIPE_KEY'),
+    'key' => env('ASAAS_KEY'),
 
-    'secret' => env('STRIPE_SECRET'),
+    'secret' => env('ASAAS_SECRET'),
 
-    'currency' => env('CASHIER_CURRENCY', 'brl'),
+    'currency' => env('ASAAS_CURRENCY', 'brl'),
 
-    'currency_locale' => env('CASHIER_CURRENCY_LOCALE', 'pt-BR'),
+    'currency_locale' => env('ASAAS_CURRENCY_LOCALE', 'pt-BR'),
 
 ];
