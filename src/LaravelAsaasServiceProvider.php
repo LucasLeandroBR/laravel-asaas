@@ -38,7 +38,7 @@ class LaravelAsaasServiceProvider extends ServiceProvider
     protected function configure(): void
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../config/config.php', 'asaas'
+            __DIR__ . '/../config/asaas.php', 'asaas'
         );
     }
 
@@ -75,8 +75,8 @@ class LaravelAsaasServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/config.php' => $this->app->configPath('asaas.php'),
-            ], 'cashier-config');
+                __DIR__ . '/../config/asaas.php' => $this->app->configPath('asaas.php'),
+            ], 'asaas-config');
 
             $this->publishes([
                 __DIR__.'/../database/migrations' => $this->app->databasePath('migrations'),
