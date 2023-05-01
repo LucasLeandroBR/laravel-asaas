@@ -1,9 +1,9 @@
 <?php
 
-namespace LucasLeandroBR\LaravelAsaas\Services\Asaas\modules;
+namespace LucasLeandroBR\LaravelAsaas\Services\Asaas;
 
+use Error;
 use Illuminate\Support\Facades\Log;
-use LucasLeandroBR\LaravelAsaas\Services\Asaas\AuthenticationService;
 
 class AsaasClientService extends AuthenticationService
 {
