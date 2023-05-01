@@ -2,10 +2,10 @@
 
 namespace LucasLeandroBR\LaravelAsaas\Concerns;
 
-use App\Services\Asaas\AsaasClientService;
-use Asaas;
-use CustomerAlreadyCreated;
-use InvalidCustomer;
+use LucasLeandroBR\LaravelAsaas\Asaas;
+use LucasLeandroBR\LaravelAsaas\Exceptions\CustomerAlreadyCreated;
+use LucasLeandroBR\LaravelAsaas\Exceptions\InvalidCustomer;
+use LucasLeandroBR\LaravelAsaas\Services\Asaas\AsaasClientService;
 
 trait ManagesCustomer
 {

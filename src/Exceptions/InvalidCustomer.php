@@ -2,6 +2,8 @@
 
 namespace LucasLeandroBR\LaravelAsaas\Exceptions;
 
+use Exception;
+
 class InvalidCustomer extends Exception
 {
 
