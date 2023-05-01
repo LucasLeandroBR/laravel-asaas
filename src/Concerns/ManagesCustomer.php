@@ -33,7 +33,7 @@ trait ManagesCustomer
     /**
      * @throws CustomerAlreadyCreated
      */
-    public function createAsAsaasCustomer(array $options = [])
+    public function createAsAsaasCustomer($options)
     {
 //        if ($this->hasAsaasId()) {
 //            throw CustomerAlreadyCreated::exists($this);
