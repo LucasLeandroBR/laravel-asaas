@@ -1,6 +1,6 @@
 <?php
 
-namespace LucasLeandroBR\LaravelAsaas;
+namespace LucasLeandroBR\LaravelAsaas\Concerns;
 
 use App\Services\Asaas\AsaasClientService;
 use Asaas;
