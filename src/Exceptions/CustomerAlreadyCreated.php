@@ -1,7 +1,5 @@
 <?php
 
-namespace Laravel\Cashier\Exceptions;
-
 use Exception;
 
 class CustomerAlreadyCreated extends Exception

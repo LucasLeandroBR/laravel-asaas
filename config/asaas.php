@@ -5,9 +5,9 @@
  */
 return [
 
-    'key' => env('ASAAS_KEY'),
+    'uri' => env('ASSAS_BASE_URI'),
 
-    'secret' => env('ASAAS_SECRET'),
+    'key' => env('ASSAS_API_KEY'),
 
     'currency' => env('ASAAS_CURRENCY', 'brl'),
 
