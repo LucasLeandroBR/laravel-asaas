@@ -28,7 +28,7 @@ class AsaasClientService extends AuthenticationService
             'result' => json_decode($result->getBody())
         ]);
 
-        return json_decode($result->getBody());
+        return json_decode($result->getBody(), true);
     }
 
     public function find(string $clientId)
