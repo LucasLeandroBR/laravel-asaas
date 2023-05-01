@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Asaas;
+namespace LucasLeandroBR\LaravelAsaas\Services\Asaas\modules;
 
 use App\Services\Assas\AuthenticationService;
 use Error;

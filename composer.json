@@ -1,7 +1,7 @@
 {
     "name": "lucasleandrobr/laravel-asaas",
     "description": "Asaas Integration for laravel 10+",
-    "version": "1.7.0",
+    "version": "1.8.0",
     "keywords": [
         "lucasleandrobr",
         "laravel-asaas"
@@ -29,6 +29,11 @@
             "LucasLeandroBR\\LaravelAsaas\\Tests\\": "tests"
         }
     },
+    "post-autoload-dump": [
+        "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+        "@php artisan package:discover --ansi",
+        "@php artisan vendor:publish --provider=LucasLeandroBR\\LaravelAsaas\\LaravelAsaasServiceProvider --force"
+    ],
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"

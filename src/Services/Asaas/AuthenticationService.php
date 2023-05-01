@@ -1,7 +1,6 @@
 <?php
 
 namespace LucasLeandroBR\LaravelAsaas\Services\Asaas;
-namespace App\Services\Assas;
 
 use GuzzleHttp\Client;
 

@@ -1,5 +1,6 @@
 <?php
 
+namespace LucasLeandroBR\LaravelAsaas;
 
 use LucasLeandroBR\LaravelAsaas\Concerns\ManagesCustomer;
 

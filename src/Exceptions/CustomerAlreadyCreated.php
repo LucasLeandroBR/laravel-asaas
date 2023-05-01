@@ -1,5 +1,7 @@
 <?php
 
+namespace LucasLeandroBR\LaravelAsaas\Exceptions;
+
 use Exception;
 
 class CustomerAlreadyCreated extends Exception

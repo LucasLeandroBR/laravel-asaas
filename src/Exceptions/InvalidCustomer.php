@@ -1,5 +1,7 @@
 <?php
 
+namespace LucasLeandroBR\LaravelAsaas\Exceptions;
+
 class InvalidCustomer extends Exception
 {
 

@@ -1,8 +1,9 @@
 <?php
 
+namespace LucasLeandroBR\LaravelAsaas;
+
 class Asaas
 {
-
     const VERSION = '3';
 
     const ASAAS_VERSION = '3';
