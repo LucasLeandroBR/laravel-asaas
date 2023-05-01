@@ -2,8 +2,6 @@
 
 namespace LucasLeandroBR\LaravelAsaas\Concerns;
 
-use LucasLeandroBR\LaravelAsaas\Asaas;
-use LucasLeandroBR\LaravelAsaas\Exceptions\CustomerAlreadyCreated;
 use LucasLeandroBR\LaravelAsaas\Exceptions\InvalidCustomer;
 use LucasLeandroBR\LaravelAsaas\Services\Asaas\AsaasClientService;
 
@@ -30,9 +28,6 @@ trait ManagesCustomer
         }
     }
 
-    /**
-     * @throws CustomerAlreadyCreated
-     */
     public function createAsAsaasCustomer($options)
     {
 //        if ($this->hasAsaasId()) {
@@ -50,8 +45,6 @@ trait ManagesCustomer
 //        if (!array_key_exists('cpfCnpj', $options) && $phone = $this->asaasPhone()) {
 //            $options['cpfCnpj'] = $phone;
 //        }
-
-        return response()->json($options, 200);
 
         $assas = new AsaasClientService();
 
@@ -113,10 +106,4 @@ trait ManagesCustomer
             // 'preferred_locales' => $this->asaasPreferredLocales(),
         ]);
     }
-
-    public static function asaas(array $options = []): Asaas
-    {
-        return Asaas::asaas($options);
-    }
-
 }
