@@ -35,21 +35,21 @@ trait ManagesCustomer
      */
     public function createAsAsaasCustomer(array $options = [])
     {
-        if ($this->hasAsaasId()) {
-            throw CustomerAlreadyCreated::exists($this);
-        }
-
-        if (!array_key_exists('name', $options) && $name = $this->asaasName()) {
-            $options['name'] = $name;
-        }
-
-        if (!array_key_exists('email', $options) && $email = $this->asaasEmail()) {
-            $options['email'] = $email;
-        }
-
-        if (!array_key_exists('cpfCnpj', $options) && $phone = $this->asaasPhone()) {
-            $options['cpfCnpj'] = $phone;
-        }
+//        if ($this->hasAsaasId()) {
+//            throw CustomerAlreadyCreated::exists($this);
+//        }
+//
+//        if (!array_key_exists('name', $options) && $name = $this->asaasName()) {
+//            $options['name'] = $name;
+//        }
+//
+//        if (!array_key_exists('email', $options) && $email = $this->asaasEmail()) {
+//            $options['email'] = $email;
+//        }
+//
+//        if (!array_key_exists('cpfCnpj', $options) && $phone = $this->asaasPhone()) {
+//            $options['cpfCnpj'] = $phone;
+//        }
 
         $assas = new AsaasClientService();
 
