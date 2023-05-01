@@ -2,59 +2,89 @@
 
 namespace LucasLeandroBR\LaravelAsaas;
 
+use Illuminate\Log\Logger;
 use Illuminate\Support\ServiceProvider;
+use Psr\Log\LoggerInterface;
 
 class LaravelAsaasServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap the application services.
+     * Bootstrap any package services.
+     *
+     * @return void
      */
     public function boot(): void
     {
-        /*
-         * Optional methods to load your package assets
-         */
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'laravel-asaas');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-asaas');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
-
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('laravel-asaas.php'),
-            ], 'config');
-
-            // Publishing the views.
-            /*$this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/vendor/laravel-asaas'),
-            ], 'views');*/
-
-            // Publishing assets.
-            /*$this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/laravel-asaas'),
-            ], 'assets');*/
-
-            // Publishing the translation files.
-            /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/laravel-asaas'),
-            ], 'lang');*/
-
-            // Registering package commands.
-            // $this->commands([]);
-        }
+        $this->registerMigrations();
+        $this->registerPublishing();
     }
 
     /**
-     * Register the application services.
+     * Register any application services.
+     *
+     * @return void
      */
     public function register(): void
     {
-        // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'laravel-asaas');
+        $this->configure();
+        $this->bindLogger();
+    }
 
-        // Register the main class to use with the facade
-        $this->app->singleton('laravel-asaas', function () {
-            return new LaravelAsaas;
+    /**
+     * Setup the configuration for Cashier.
+     *
+     * @return void
+     */
+    protected function configure(): void
+    {
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/config.php', 'asaas'
+        );
+    }
+
+    /**
+     * Bind the Stripe logger interface to the Cashier logger.
+     *
+     * @return void
+     */
+    protected function bindLogger(): void
+    {
+        $this->app->bind(LoggerInterface::class, function ($app) {
+            return new Logger(
+                $app->make('log')->channel(config('asaas.logger'))
+            );
         });
+    }
+
+    /**
+     * Register the package migrations.
+     *
+     * @return void
+     */
+    protected function registerMigrations(): void
+    {
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+    }
+
+    /**
+     * Register the package's publishable resources.
+     *
+     * @return void
+     */
+    protected function registerPublishing(): void
+    {
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__.'/../config/config.php' => $this->app->configPath('asaas.php'),
+            ], 'cashier-config');
+
+            $this->publishes([
+                __DIR__.'/../database/migrations' => $this->app->databasePath('migrations'),
+            ], 'asaas-migrations');
+
+//            $this->publishes([
+//                __DIR__.'/../resources/views' => $this->app->resourcePath('views/vendor/asaas'),
+//            ], 'asaas-views');
+        }
     }
 }
