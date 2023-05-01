@@ -51,6 +51,8 @@ trait ManagesCustomer
 //            $options['cpfCnpj'] = $phone;
 //        }
 
+        return response()->json($options, 200);
+
         $assas = new AsaasClientService();
 
         $customer = $assas->create($options);
